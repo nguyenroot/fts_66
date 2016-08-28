@@ -1,0 +1,74 @@
+<% provide :title, t("edit_profile") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2><b><%= t "edit_something", name: resource_name.to_s.humanize %></b></h2>
+
+    <%= form_for(resource, as: resource_name,
+      url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :chatwork_id %>
+        <%= f.text_field :chatwork_id, class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>
+          <%= t "waiting_confirm_for", email: resource.unconfirmed_email %>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <i><%= t "leave_password" %></i>
+        <%= f.password_field :password, autocomplete: "off",
+          class: "form-control" %>
+        <% if @minimum_password_length %>
+          <em>
+            <%= t "users.sign_up.min_characters",
+            length: @minimum_password_length %>
+          </em>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :current_password %>
+        <i><%= t "need_current_password" %></i>
+        <%= f.password_field :current_password, autocomplete: "off",
+          class: "form-control" %>
+      </div>
+
+      <span class="actions">
+        <%= f.submit t("update_button"), class: "btn btn-primary pull-right" %>
+      </span>
+    <% end %>
+
+    <span class="actions">
+      <%= button_to t("delete_account_button"),
+        registration_path(resource_name),
+        data: { confirm: t("delete_account_confirm") }, method: :delete,
+        class: "btn btn-danger" %>
+    </span>
+
+    <span class="actions">
+      <%= link_to t("back_button"), :back, class: "btn btn-warning" %>
+    </span>
+
+  </div>
+</div>
