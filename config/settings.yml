@@ -1,2 +1,6 @@
 pagination:
   per_page: 10
+  size: 10
+role:
+  admin: "admin"
+  trainee: "trainee"

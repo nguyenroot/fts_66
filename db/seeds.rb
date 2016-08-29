@@ -17,6 +17,15 @@ User.create!(name: "Test User",
              chatwork_id: "test.user",
              password: "123456",
              password_confirmation: "123456")
+20.times do |n|
+  name = Faker::Name.name
+  email = "trainee-#{n+1}@gmail.com"
+  password = "123456"
+  password_confirmation = "123456"
+  chatwork_id = "123456"
+  User.create!(name: name, email: email, chatwork_id: chatwork_id, password: password,
+               password_confirmation: password, role: 0)
+end
 30.times do |n|
   name = "Fake subject name #{n+1}"
   question_number = rand(20..30)

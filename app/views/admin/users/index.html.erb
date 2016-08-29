@@ -1,0 +1,7 @@
+<%= content_for :title do %>
+  <%= t "title" %>
+<% end %>
+<div id="list-users">
+  <%= render "user_all" %>
+  <%= paginate @users %>
+</div>

@@ -21,6 +21,7 @@
 
 en:
   title: "Framgia Test"
+  time_format: "%c"
   home: "Home"
   sign_up: "Sign up"
   sign_in: "Sign in"
@@ -53,8 +54,10 @@ en:
   flash:
     success:
       created_subject: "Created subject successfully!"
+      destroy_user: "Delete user successfully!"
     danger:
       created_subject: "Created subject failed!"
+      destroy_user: "Delete user failed!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -78,3 +81,20 @@ en:
         save_button: "Save changes"
       form:
         cancel_button: "Cancel"
+    users:
+      index: "Index"
+      name: "Name"
+      email: "Email"
+      chatwork: "Chatwork"
+      role: "Role"
+      create_at: "Create at"
+      acion: "Action"
+      btn_view: "View"
+      btn_edit: "Edit"
+      btn_delete: "Delete"
+      delete_user: "Are you sure you want to delete this user?"
+      form:
+        submit_button: "Save"
+      update:
+        update_success: "Update user successfully"
+        update_fail: "Update user fail"
