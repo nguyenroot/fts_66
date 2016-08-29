@@ -17,3 +17,11 @@ User.create!(name: "Test User",
              chatwork_id: "test.user",
              password: "123456",
              password_confirmation: "123456")
+30.times do |n|
+  name = "Fake subject name #{n+1}"
+  question_number = rand(20..30)
+  duration = rand(20..30)
+  Subject.create! name: name,
+                  question_number: question_number,
+                  duration: duration
+end
