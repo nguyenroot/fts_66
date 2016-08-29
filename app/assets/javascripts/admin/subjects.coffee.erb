@@ -1,0 +1,10 @@
+$ ->
+  max_size = <%= Settings.pictures.max_size %>
+  max_size_message = '<%= I18n.t "pictures.max_size_message", max_size: Settings.pictures.max_size %>'
+  $(document).on "change", "#subject_image_path", (e) ->
+    size_in_megabytes = @files[0].size / 1024 / 1024
+    if size_in_megabytes > max_size
+      $('#subject_image_path').replaceWith $('#subject_image_path').val('').clone(true)
+      alert max_size_message
+  return
+return

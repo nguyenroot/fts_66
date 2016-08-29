@@ -51,13 +51,21 @@ en:
   change_my_password: "Change my password"
   form_error_messages: "The form contains %{plural}."
   error_text: "error"
+  pictures:
+    max_size_message: "Maximum file size is %{max_size}MB. Please choose a smaller file."
+    error_message: "Image should be less than %{max_size}MB"
   flash:
     success:
       created_subject: "Created subject successfully!"
       destroy_user: "Delete user successfully!"
+      deleted_subject: "Deleted subject successfully!"
+      updated_subject: "Update subject successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
+      deleted_subject: "Deleted subject failed!"
+      updated_subject: "Update subject failed!"
+      subject_not_found: "Subject is not found!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -79,8 +87,13 @@ en:
         cancel_button: "Cancel"
         create_button: "Create"
         save_button: "Save changes"
+      edit:
+        edit_subject: "Edit Subject"
+        edit_button: "Create"
+        save_button: "Save changes"
       form:
         cancel_button: "Cancel"
+        no_image: "There is no image to be shown."
     users:
       index: "Index"
       name: "Name"
