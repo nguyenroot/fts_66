@@ -4,3 +4,7 @@ pagination:
 role:
   admin: "admin"
   trainee: "trainee"
+pictures:
+  upload_dir: "uploads"
+  accepted_files: "image/jpeg, image/gif, image/png"
+  max_size: 5

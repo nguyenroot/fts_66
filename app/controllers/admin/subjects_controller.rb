@@ -1,5 +1,7 @@
 class Admin::SubjectsController < ApplicationController
   before_action :authenticate_user!, :load_subjects
+  before_action :load_subject, only: [:edit, :update, :destroy]
+
   def index
   end
 
@@ -16,9 +18,36 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @subject.update_attributes subject_params
+      flash.now[:success] = t "flash.success.updated_subject"
+    else
+      flash.now[:danger] = t "flash.danger.updated_subject"
+    end
+  end
+
+  def destroy
+    if @subject.present? && @subject.destroy
+      flash.now[:success] = t "flash.success.deleted_subject"
+    else
+      flash.now[:danger] = t "flash.danger.deleted_subject"
+    end
+  end
+
   private
   def subject_params
-    params.require(:subject).permit :name, :question_number, :duration
+    params.require(:subject).permit :name, :question_number,
+      :duration, :image_path
+  end
+
+  def load_subject
+    @subject = Subject.find_by id: params[:id]
+    unless @subject
+      flash.now[:danger] = t "flash.danger.subject_not_found"
+    end
   end
 
   def load_subjects
