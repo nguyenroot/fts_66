@@ -61,12 +61,12 @@ ActiveRecord::Schema.define(version: 20160828041509) do
 
   create_table "questions", force: :cascade do |t|
     t.text     "content"
-    t.integer  "type"
+    t.integer  "answer_type"
     t.integer  "status"
     t.integer  "subject_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id"

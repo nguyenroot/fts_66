@@ -1,0 +1,19 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#question {
+  .link-text-question {
+    font-size: 0.5em;
+    line-height: 3em;
+  }
+  .space-top-remove {
+    margin-top: 5px;
+  }
+  .answer-field-box {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .space-top-submit {
+    margin-top: 40px;
+  }
+}
