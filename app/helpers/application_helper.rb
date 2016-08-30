@@ -13,4 +13,13 @@ module ApplicationHelper
     collection.index(element) + 1 +
       (collection.current_page - 1) * page_elements_count
   end
+
+  def admin_logs
+    f = File.open "#{Rails.root}/" + Settings.logs.admin_log_path, "r"
+    admin_logs = Array.new
+    f.each_line do |line|
+      admin_logs.append line
+    end
+    admin_logs.last Settings.logs.last_ten
+  end
 end

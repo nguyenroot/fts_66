@@ -111,3 +111,5 @@ en:
       update:
         update_success: "Update user successfully"
         update_fail: "Update user fail"
+  logs:
+    admin_log: "Admin logs"
