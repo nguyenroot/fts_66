@@ -15,10 +15,11 @@
     <%= f.select :answer_type, Question.answer_types.keys.to_a, {},
       {class: "form-control"} %>
   </div>
-  <div id ="answer_field">
+  <div id ="answers_field">
     <%= f.simple_fields_for :answers do |answer_builder| %>
       <%= render "answer_fields", f: answer_builder %>
     <% end %>
+    <div id ="answer_field"></div>
     <div class="add_fields">
       <%= link_to_add_fields t(".add_answer"), f, :answers %>
     </div>

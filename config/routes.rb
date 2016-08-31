@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   end
 
   root "static_pages#home"
-
   namespace :admin do
     root "subjects#index"
     resources :subjects
     resources :users
+    resources :questions
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
