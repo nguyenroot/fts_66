@@ -16,3 +16,14 @@ questions:
     single_choice: "single_choice"
     multi_choice: "multi_choice"
     text: "text"
+status:
+  exam:
+    start: "start"
+    testing: "testing"
+    uncheck: "uncheck"
+    checked: "checked"
+    inactive: "inactive"
+exams:
+  default_score: 0
+  default_spent_time: 0
+  default_correct: false
