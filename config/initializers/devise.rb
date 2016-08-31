@@ -284,4 +284,10 @@ Devise.setup do |config|
         "Email: #{user.email}, IP:  #{auth.request.remote_ip}"
     end
   end
+
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"],
+    ENV["GOOGLE_CLIENT_SECRET"], {}
+  config.omniauth :facebook, ENV["APP_ID"], ENV["APP_SECRET"],
+    scope: "email", info_fields: "email, name",
+    strategy_class: OmniAuth::Strategies::Facebook
 end

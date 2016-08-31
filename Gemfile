@@ -23,6 +23,10 @@ gem "sdoc",                     "0.4.0", group: :doc
 gem "kaminari"
 gem "simple_form"
 gem "ransack"
+gem "figaro"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"
