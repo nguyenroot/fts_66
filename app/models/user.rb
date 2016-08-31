@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :exams, dependent: :destroy
   has_many :subjects, through: :exams
+  has_many :questions, dependent: :destroy
 
   enum role: {user: 0, admin: 1}
 
