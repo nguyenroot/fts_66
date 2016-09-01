@@ -62,6 +62,7 @@ en:
       updated_subject: "Update subject successfully!"
       contributed_question: "Contributed question successfully!"
       created_question: "Create question successfully!"
+      created_exam: "Create exam successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -69,6 +70,7 @@ en:
       updated_subject: "Update subject failed!"
       subject_not_found: "Subject is not found!"
       contributed_question: "Contributed question failed!"
+      created_exam: "Create exam failed!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -174,8 +176,29 @@ en:
     errors:
       must_more_one: "must has more than 1 answer"
       must_has_correct_answer: "must has at least 1 correct answer"
-    questions:
-      index:
-        new_question: "New Question"
-      new:
-        create_button: "Save"
+  exams:
+    index:
+      start_button: "Start"
+      view_button: "View"
+      created_date: "Created Date"
+      subject_name: "Subject's name"
+      status: "Status"
+      duration: "Duration"
+      question_number: "Question number"
+      spent_time: "Spent Time"
+      score: "Score"
+      action: "Action"
+      create_button: "Create Exam"
+      exam_list: "Examination List"
+      title: "Exams"
+  labels:
+    status:
+      exam:
+        start: "start"
+        testing: "testing"
+        uncheck: "uncheck"
+        checked: "checked"
+        inactive: "inactive"
+  time_format: "%H:%M:%S"
+  date_format: "%Y/%m/%d"
+  datetime_format: "%Y-%m-%d %l:%M %p"
