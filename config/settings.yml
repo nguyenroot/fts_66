@@ -27,3 +27,5 @@ exams:
   default_score: 0
   default_spent_time: 0
   default_correct: false
+mailer:
+  default_mail: "no-reply@fts.framgia.vn"

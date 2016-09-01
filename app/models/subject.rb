@@ -4,6 +4,9 @@ class Subject < ActiveRecord::Base
   has_many :users, through: :exams
 
   mount_uploader :image_path, PictureUploader
+
+  after_create :send_notify_users
+
   validates :name, presence: true, length: {maximum: 50}
   validates :question_number, presence: true, numericality: {only_integer: true}
   validates :duration, presence: true, numericality: {only_integer: true}
@@ -15,5 +18,9 @@ class Subject < ActiveRecord::Base
     if image_path.size > max_size.megabytes
       errors.add(:image_path, I18n.t("pictures.error_message", max_size: max_size))
     end
+  end
+
+  def send_notify_users
+    SubjectNotification.new(self).send_notify_users
   end
 end
