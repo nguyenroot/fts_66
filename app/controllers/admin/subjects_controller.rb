@@ -1,8 +1,13 @@
 class Admin::SubjectsController < ApplicationController
   before_action :authenticate_user!, :load_subjects
-  before_action :load_subject, only: [:edit, :update, :destroy]
+  before_action :load_subject, only: [:edit, :update, :destroy, :show]
 
   def index
+  end
+
+  def show
+    @questions = @subject.questions.page(params[:page])
+      .per_page Settings.pagination.per_page
   end
 
   def new
