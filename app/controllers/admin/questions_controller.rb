@@ -18,6 +18,17 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find_by id: params[:id]
+    if @question.nil?
+      flash.now[:danger] = t "flash.success.deleted_question"
+    else
+      @question.destroy
+      flash[:success] = t "flash.success.deleted_question"
+    end
+    redirect_to :back
+  end
+
   private
   def question_params
     params.require(:question).permit :id, :content, :answer_type,

@@ -63,6 +63,7 @@ en:
       contributed_question: "Contributed question successfully!"
       created_question: "Create question successfully!"
       created_exam: "Create exam successfully!"
+      deleted_question: "Deleted subject successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -71,6 +72,7 @@ en:
       subject_not_found: "Subject is not found!"
       contributed_question: "Contributed question failed!"
       created_exam: "Create exam failed!"
+      deleted_question: "Deleted subject failed!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -87,6 +89,7 @@ en:
         question_number: "Questions"
         duration: "Duration"
         actions: "Actions"
+        delete: "Delete"
       new:
         create_subject: "Create Subject"
         cancel_button: "Cancel"
@@ -99,6 +102,14 @@ en:
       form:
         cancel_button: "Cancel"
         no_image: "There is no image to be shown."
+      show:
+        question_type: "Type"
+        action: "Action"
+        create_by: "Create by"
+        delete_button: "Delete"
+        edit_button: "Edit"
+        delete_question_confirm: "Do you want delet this question?"
+        content: "Content"
     users:
       index: "Index"
       name: "Name"
