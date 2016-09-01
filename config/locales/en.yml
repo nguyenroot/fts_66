@@ -202,3 +202,9 @@ en:
   time_format: "%H:%M:%S"
   date_format: "%Y/%m/%d"
   datetime_format: "%Y-%m-%d %l:%M %p"
+  user_mailer:
+    notify_user_new_subject:
+      subject: "New subject in FTS_66: \"%{subject}\""
+      dear_user: "Hi %{username},"
+      body: "I'd like to inform you that \"%{subject_name}\" is available in system."
+      signature: "FTS_66 team."
