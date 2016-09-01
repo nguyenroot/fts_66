@@ -5,19 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(name: "Hoang Mirs",
+User.create!(name: "Hoang Admin",
              email: "hoang@gmail.com",
+             chatwork_id: "admin",
+             password: "123456",
+             password_confirmation: "123456",
+             role: 1)
+User.create!(name: "Hoang Mirs",
+             email: "hoang.mirs@gmail.com",
              chatwork_id: "hoang.mirs",
              password: "123456",
              password_confirmation: "123456",
              role: 1)
-
 User.create!(name: "Test User",
              email: "test@gmail.com",
              chatwork_id: "test.user",
              password: "123456",
              password_confirmation: "123456")
-20.times do |n|
+3.times do |n|
   name = Faker::Name.name
   email = "trainee-#{n+1}@gmail.com"
   password = "123456"
@@ -29,15 +34,19 @@ end
 
 20.times do |n|
   content = Faker::Name.name
-  answer_type = 1
+  answer_type = rand(0..1)
   status = 1
   subject_id = 1
   user_id = 1
+  answers = {}
+  4.times do |m|
+    answers["#{m}"] = {content: "Answer #{m}", is_correct: true}
+  end
   Question.create!(content: content, answer_type: answer_type,
-    status: status, user_id: user_id, subject_id: subject_id)
+    status: status, user_id: user_id, subject_id: subject_id, answers_attributes: answers)
 end
 
-30.times do |n|
+5.times do |n|
   name = "Fake subject name #{n+1}"
   question_number = rand(20..30)
   duration = rand(20..30)
