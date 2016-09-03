@@ -9,7 +9,7 @@
     <td><%= Time.at(exam.spent_time).utc.strftime t("time_format") %></td>
     <td class="center">
       <% if exam.uncheck? || exam.checked? %>
-        <%= "#{exam.get_score}/#{exam.exam_questions.count}" %>
+        <%= "#{exam.score}/#{exam.exam_questions.count}" %>
       <% else %>
         <%= "-" %>
       <% end %>

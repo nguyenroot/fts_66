@@ -51,6 +51,11 @@ en:
   change_my_password: "Change my password"
   form_error_messages: "The form contains %{plural}."
   error_text: "error"
+  exams_button: "Exams"
+  subjects_button: "Subjects"
+  contributed_questions: "Contributed questions"
+  users_button: "Users"
+  admin_home: "Admin"
   pictures:
     max_size_message: "Maximum file size is %{max_size}MB. Please choose a smaller file."
     error_message: "Image should be less than %{max_size}MB"
@@ -271,3 +276,4 @@ en:
       dear_user: "Hi %{username},"
       body: "I'd like to inform you that \"%{subject_name}\" is available in system."
       signature: "FTS_66 team."
+  no_avatar: "No avatar"

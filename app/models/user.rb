@@ -8,9 +8,12 @@ class User < ActiveRecord::Base
   has_many :subjects, through: :exams
   has_many :questions, dependent: :destroy
 
+  mount_uploader :avatar_path, PictureUploader
+
   enum role: {user: 0, admin: 1}
 
   validates :name, presence: true, length: {maximum: 50}
+  validate :avatar_size
 
   class << self
     def from_omniauth auth
@@ -21,6 +24,14 @@ class User < ActiveRecord::Base
         user.provider = auth.provider
         user.uid = auth.uid
       end
+    end
+  end
+
+  private
+  def avatar_size
+    max_size = Settings.pictures.max_size
+    if avatar_path.size > max_size.megabytes
+      errors.add(:avatar_path, I18n.t("pictures.error_message", max_size: max_size))
     end
   end
 end
