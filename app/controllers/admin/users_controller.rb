@@ -1,8 +1,9 @@
 class Admin::UsersController < ApplicationController
-  before_action :load_user, except: [:index, :create, :new]
+  before_action :verify_admin
+  load_and_authorize_resource
 
   def index
-    @users = User.page(params[:page]).per(Settings.pagination.per_page)
+    @users = @users.page(params[:page]).per_page(Settings.pagination.per_page)
   end
 
   def show

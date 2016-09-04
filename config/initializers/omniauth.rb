@@ -6,5 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       prompt: "select_account"
     }
   OmniAuth.config.full_host = Rails.env
-    .production? ? "https://domain.com" : "http://localhost:3000"
+    .production? ? "https://fts-66.herokuapp.com" : "http://localhost:3000"
 end

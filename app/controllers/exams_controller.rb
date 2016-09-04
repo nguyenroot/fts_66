@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-  before_action :load_exam, only: [:show, :update]
+  load_and_authorize_resource
 
   def index
     @exam = current_user.exams.new

@@ -1,7 +1,10 @@
 class Admin::QuestionsController < ApplicationController
-  before_action :authenticate_user!, :load_questions
-  before_action :load_question, only: [:edit, :update, :destroy, :show]
+  before_action :verify_admin
+  load_and_authorize_resource
+
   def index
+    @questions = @questions.order("created_at DESC").paginate page: params[:page],
+      per_page: Settings.pagination.per_page
   end
 
   def new
@@ -11,6 +14,7 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def create
+    load_questions
     @question = current_user.questions.new question_params
     if @question.save
       flash.now[:success] = t "flash.success.created_question"
@@ -24,6 +28,7 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def update
+    load_questions
     if @question.update_attributes question_params
       flash.now[:success] = t "flash.success.updated_question"
     else
@@ -32,7 +37,7 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find_by id: params[:id]
+    load_questions
     if @question.nil?
       flash.now[:danger] = t "flash.success.deleted_question"
     else
@@ -57,7 +62,8 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def load_questions
-    @questions = Question.order("created_at DESC").paginate page: params[:page],
+    @questions = Question.order("created_at DESC")
+      .paginate page: params[:page],
       per_page: Settings.pagination.per_page
   end
 end
