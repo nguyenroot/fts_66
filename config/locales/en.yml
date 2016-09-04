@@ -67,6 +67,7 @@ en:
       saved_exam: "Saved exam successfully!"
       finished_exam: "Finished exam successfully!"
       updated_question: "Update subject successfully!"
+      checked_exam: "Checked exam successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -80,6 +81,9 @@ en:
       saved_exam: "Saved exam failed!"
       finished_exam: "Finished exam failed!"
       updated_question: "Update subject failed!"
+      checked_exam: "Checked exam failed!"
+    notice:
+      permission_denied: "You're not admin!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -171,6 +175,25 @@ en:
       edit:
         suggest_question: "Suggest Question"
         create_button: "Save"
+    exams:
+      questions:
+        save: "Save"
+        checked: "Checked"
+      index:
+        check_button: "Check"
+        view_button: "View"
+        created_date: "Created Date"
+        subject_name: "Subject's name"
+        status: "Status"
+        duration: "Duration"
+        question_number: "Question number"
+        spent_time: "Spent Time"
+        score: "Score"
+        action: "Action"
+        create_button: "Create Exam"
+        exam_list: "Examination List"
+        title: "Exams"
+        user: "User"
   logs:
     admin_log: "Admin logs"
   questions:
@@ -236,6 +259,9 @@ en:
         uncheck: "uncheck"
         checked: "checked"
         inactive: "inactive"
+      exam_question:
+        correct: "correct"
+        incorrect: "incorrect"
   time_format: "%H:%M:%S"
   date_format: "%Y/%m/%d"
   datetime_format: "%Y-%m-%d %l:%M %p"

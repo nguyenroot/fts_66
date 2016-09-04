@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require jquery.countdown
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
