@@ -8,7 +8,7 @@ class Exam < ActiveRecord::Base
 
   before_create :create_exam_questions
 
-  after_create :set_default
+  after_create :set_default, :notify_user
 
   accepts_nested_attributes_for :exam_questions
 
@@ -16,6 +16,7 @@ class Exam < ActiveRecord::Base
     if self.start?
       self.testing!
       self.update started_at: Time.now
+      delete_delayed_job
     elsif self.testing?
       self.uncheck! if (get_remain_time < 0 || is_finished_or_checked)
       update_spent_time
@@ -60,5 +61,15 @@ class Exam < ActiveRecord::Base
     seconds = self.updated_at.to_i - start_time.to_i
     seconds = subject.duration.minutes if seconds > subject.duration.minutes
     self.update spent_time: seconds
+  end
+
+  def notify_user
+    exam_notify = ExamNotify.new self
+    Delayed::Job.enqueue exam_notify, Settings.exams.notify_priority,
+      Settings.exams.notify_hour.hours.from_now, queue: "exam-#{id}"
+  end
+
+  def delete_delayed_job
+    Delayed::Job.find_by(queue: "exam-#{id}").delete
   end
 end
