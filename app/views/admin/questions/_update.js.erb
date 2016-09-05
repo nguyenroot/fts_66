@@ -1,0 +1,7 @@
+<% if @question.errors.any? %>
+  $('.form_errors').html('<%= escape_javascript(render "shared/error_messages", object: @question) %>')
+<% else %>
+  $('.question-index').html('<%= escape_javascript(render "index") %>')
+  $('#question-modal').modal('hide')
+<% end %>
+$('.flash-messages').html('<%= escape_javascript(render "layouts/messages") %>')
