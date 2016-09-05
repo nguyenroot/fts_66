@@ -18,10 +18,14 @@ class Exam < ActiveRecord::Base
       self.update started_at: Time.now
       delete_delayed_job
     elsif self.testing?
-      self.uncheck! if (get_remain_time < 0 || is_finished_or_checked)
+      if (get_remain_time < 0 || is_finished_or_checked)
+        self.uncheck!
+        calculate_score
+      end
       update_spent_time
     elsif self.uncheck? && is_finished_or_checked
       self.checked!
+      ExamResultWorker.perform_async self
     end
   end
 

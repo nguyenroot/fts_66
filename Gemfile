@@ -33,6 +33,7 @@ gem "delayed_job"
 gem "delayed_job_active_record"
 gem "daemons"
 gem "cloudinary"
+gem "sidekiq"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"
