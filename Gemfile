@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby "2.3.1"
 
 gem "rails",                    "4.2.6"
 gem "devise"
@@ -28,6 +29,9 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem "jquery-countdown-rails"
+gem "delayed_job"
+gem "delayed_job_active_record"
+gem "daemons"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"
