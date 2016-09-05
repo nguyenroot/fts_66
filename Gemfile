@@ -27,6 +27,7 @@ gem "figaro"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
+gem "jquery-countdown-rails"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"

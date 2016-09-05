@@ -1,4 +1,6 @@
 class ExamsController < ApplicationController
+  before_action :load_exam, only: [:show, :update]
+
   def index
     @exam = current_user.exams.new
     @subjects =  Subject.all
@@ -16,8 +18,37 @@ class ExamsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @exam.update_status
+    @exam.exam_questions.each do |exam_question|
+      exam_question.build_exam_answers
+    end
+  end
+
+  def update
+    if @exam.update_attributes exam_params
+      @exam.update_status params[:finish]
+      flash[:success] = t "flash.success.saved_exam" if params[:save]
+      flash[:success] = t "flash.success.finished_exam" if params[:finish]
+    else
+      flash[:danger] = t "flash.danger.saved_exam" if params[:save]
+      flash[:danger] = t "flash.danger.finished_exam" if params[:finish]
+    end
+    redirect_to exams_path
+  end
+
   private
   def exam_params
-    params.require(:exam).permit :subject_id
+    params.require(:exam).permit :subject_id,
+      exam_questions_attributes: [:id, exam_answers_attributes: [:id,
+      :answer_id, :content_answer, :_destroy]]
+  end
+
+  def load_exam
+    @exam = Exam.find_by id: params[:id]
+    unless @exam
+      flash[:danger] = I18n.t "flash.danger.exam_not_found"
+      redirect_to root_path
+    end
   end
 end

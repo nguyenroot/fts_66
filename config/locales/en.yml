@@ -64,6 +64,8 @@ en:
       created_question: "Create question successfully!"
       created_exam: "Create exam successfully!"
       deleted_question: "Deleted subject successfully!"
+      saved_exam: "Saved exam successfully!"
+      finished_exam: "Finished exam successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -73,6 +75,9 @@ en:
       contributed_question: "Contributed question failed!"
       created_exam: "Create exam failed!"
       deleted_question: "Deleted subject failed!"
+      exam_not_found: "Exam is not found!"
+      saved_exam: "Saved exam failed!"
+      finished_exam: "Finished exam failed!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -188,6 +193,9 @@ en:
       must_more_one: "must has more than 1 answer"
       must_has_correct_answer: "must has at least 1 correct answer"
   exams:
+    timeout: "Timeout. The exam is finished. The result will be sent to you."
+    exam_date: "Exam start at: %{date}"
+    time_out: "Your exam is time out. We are going to submit your test automatically"
     index:
       start_button: "Start"
       view_button: "View"
@@ -202,6 +210,19 @@ en:
       create_button: "Create Exam"
       exam_list: "Examination List"
       title: "Exams"
+    show:
+      time_remain: "Time remain:"
+      hour: "Hours"
+      minute: "Minutes"
+      second: "Seconds"
+    questions:
+      save: "Save"
+      finish: "Finish"
+      finish_confirm: "Are you sure you want to finish this exam? This action cannot be undone!"
+    answers:
+      content_answer: "Your answer"
+      content_answer_holder: "Type your answer here..."
+      content_answer_hint: "This is a text answer. Please type your answer to the above field."
   labels:
     status:
       exam:

@@ -12,6 +12,20 @@ class Exam < ActiveRecord::Base
 
   accepts_nested_attributes_for :exam_questions
 
+  def update_status is_finished = false
+    if self.start?
+      self.testing!
+      self.update started_at: Time.now
+    elsif self.testing? && (get_remain_time < 0 || is_finished)
+      self.uncheck!
+    end
+  end
+
+  def get_remain_time
+     endtime = self.started_at + subject.duration.minutes
+     seconds = endtime.to_i - Time.now.to_i
+  end
+
   private
   def create_exam_questions
     confirmed_questions = subject.questions.confirmed.order("RANDOM()")
