@@ -73,6 +73,8 @@ en:
       finished_exam: "Finished exam successfully!"
       updated_question: "Update subject successfully!"
       checked_exam: "Checked exam successfully!"
+      updated_contributed_question: "Update contributed question successfully!"
+      deleted_contributed_question: "Deleted contributed question successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -87,6 +89,8 @@ en:
       finished_exam: "Finished exam failed!"
       updated_question: "Update subject failed!"
       checked_exam: "Checked exam failed!"
+      updated_contributed_question: "Update contributed question failed!"
+      deleted_contributed_question: "Deleted contributed question failed!"
     notice:
       permission_denied: "You're not admin!"
   users:
@@ -208,6 +212,7 @@ en:
     answer: "Answer"
     new:
       suggest_question: "Suggest Question"
+      suggest_button: "Suggest"
     form:
       question_content: "Type question's content here..."
       add_answer: "Add answer"
@@ -225,9 +230,24 @@ en:
       subject_name: "Subject's name"
       answer_type: "Answer's type"
       status: "Status"
+      delete_question_confirm: "Do you want delete this question?"
     errors:
       must_more_one: "must has more than 1 answer"
       must_has_correct_answer: "must has at least 1 correct answer"
+    edit:
+      edit_question: "Edit Question"
+      save_changes: "Save changes"
+    show:
+      question: "Question"
+      content: "Content"
+      answers: "Answers"
+      subject_name: "Subject's name"
+      answer_type: "Answer's type"
+      status: "Status"
+      actions: "Actions"
+      edit: "Edit"
+      delete: "Delete"
+      delete_question_confirm: "Do you want delete this question?"
   exams:
     timeout: "Timeout. The exam is finished. The result will be sent to you."
     exam_date: "Exam start at: %{date}"
@@ -273,6 +293,10 @@ en:
       exam_question:
         correct: "correct"
         incorrect: "incorrect"
+      question:
+        confirmed: "confirmed"
+        rejected: "rejected"
+        not_confirm: "waiting"
   time_format: "%H:%M:%S"
   date_format: "%Y/%m/%d"
   datetime_format: "%Y-%m-%d %l:%M %p"
