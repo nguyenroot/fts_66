@@ -3,6 +3,10 @@
   <ol>
     <%= f.simple_fields_for :exam_questions do |question_builder| %>
       <li>
+        <% if @exam.checked? %>
+          <%= render "shared/correct_status_label",
+            is_correct: question_builder.object.is_correct %>
+        <% end %>
         <%= question_builder.object.question.content %>
         <%= render "answers", question_builder: question_builder,
           is_disabled: is_disabled %>

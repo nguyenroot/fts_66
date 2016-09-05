@@ -16,9 +16,9 @@ class Exam < ActiveRecord::Base
     if self.start?
       self.testing!
       self.update started_at: Time.now
-    elsif self.testing? && (get_remain_time < 0 || is_finished_or_checked)
-      self.uncheck!
-      calculate_score
+    elsif self.testing?
+      self.uncheck! if (get_remain_time < 0 || is_finished_or_checked)
+      update_spent_time
     elsif self.uncheck? && is_finished_or_checked
       self.checked!
     end
@@ -53,5 +53,12 @@ class Exam < ActiveRecord::Base
     exam_questions.each do |exam_question|
       exam_question.check_correct
     end
+  end
+
+  def update_spent_time
+    start_time = self.started_at
+    seconds = self.updated_at.to_i - start_time.to_i
+    seconds = subject.duration.minutes if seconds > subject.duration.minutes
+    self.update spent_time: seconds
   end
 end
