@@ -66,6 +66,7 @@ en:
       deleted_question: "Deleted subject successfully!"
       saved_exam: "Saved exam successfully!"
       finished_exam: "Finished exam successfully!"
+      updated_question: "Update subject successfully!"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -78,6 +79,7 @@ en:
       exam_not_found: "Exam is not found!"
       saved_exam: "Saved exam failed!"
       finished_exam: "Finished exam failed!"
+      updated_question: "Update subject failed!"
   users:
     sign_up:
       min_characters: "(%{length} characters minimum)"
@@ -166,6 +168,9 @@ en:
           new_question: "New Question"
         new:
           create_button: "Save"
+      edit:
+        suggest_question: "Suggest Question"
+        create_button: "Save"
   logs:
     admin_log: "Admin logs"
   questions:

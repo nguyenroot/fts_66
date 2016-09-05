@@ -4,7 +4,8 @@
     <td><%= question.user.name %></td>
     <td><%= question.status %></td>
     <td>
-      <%= link_to t(".edit"), "#", class: "btn btn-primary" %>
+      <%= link_to t(".edit"), edit_admin_question_path(question.id),
+        remote: true, class: "btn btn-primary" %>
       <%= link_to t(".delete"), "#",
         method: :delete, data: {confirm: t(".delete_question_confirm")},
         class: "btn btn-danger" %>
