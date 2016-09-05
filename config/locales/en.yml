@@ -256,6 +256,9 @@ en:
       content_answer: "Your answer"
       content_answer_holder: "Type your answer here..."
       content_answer_hint: "This is a text answer. Please type your answer to the above field."
+    exam:
+      result: "Exam's result"
+      check_button: "Admin checking"
   labels:
     status:
       exam:

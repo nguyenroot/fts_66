@@ -4,7 +4,7 @@ class ExamsController < ApplicationController
   def index
     @exam = current_user.exams.new
     @subjects =  Subject.all
-    @exams = current_user.exams.page(params[:page])
+    @exams = current_user.exams.order("updated_at DESC").page(params[:page])
       .per_page Settings.pagination.per_page
   end
 
@@ -28,11 +28,9 @@ class ExamsController < ApplicationController
   def update
     if @exam.update_attributes exam_params
       @exam.update_status params[:finish]
-      flash[:success] = t "flash.success.saved_exam" if params[:save]
-      flash[:success] = t "flash.success.finished_exam" if params[:finish]
+      flash[:success] = t "flash.success.saved_exam"
     else
-      flash[:danger] = t "flash.danger.saved_exam" if params[:save]
-      flash[:danger] = t "flash.danger.finished_exam" if params[:finish]
+      flash[:danger] = t "flash.danger.saved_exam"
     end
     redirect_to exams_path
   end
