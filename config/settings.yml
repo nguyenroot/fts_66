@@ -19,6 +19,9 @@ questions:
     single_choice: "single_choice"
     multi_choice: "multi_choice"
     text: "text"
+  status:
+    :confirmed: "Approved"
+    :rejected: "Rejected"
 status:
   exam:
     start: "start"

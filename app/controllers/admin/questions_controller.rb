@@ -3,8 +3,10 @@ class Admin::QuestionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @questions = @questions.order("created_at DESC").paginate page: params[:page],
-      per_page: Settings.pagination.per_page
+    @subjects = Subject.all
+    @search = Question.contributed.ransack params[:q]
+    @statuses = Question.statuses
+    @questions =  @search.result.page(params[:page]).per_page(Settings.pagination.per_page)
   end
 
   def new
@@ -29,11 +31,12 @@ class Admin::QuestionsController < ApplicationController
 
   def update
     if @question.update_attributes question_params
-      flash.now[:success] = t "flash.success.updated_question"
+      flash[:success] = t "flash.danger.edit_question"
+      redirect_to admin_questions_path
     else
-      flash.now[:danger] = t "flash.danger.updated_question"
+      flash[:danger] = t "flash.danger.edit_question"
+      render :edit
     end
-    redirect_to :back
   end
 
   def destroy
@@ -51,18 +54,5 @@ class Admin::QuestionsController < ApplicationController
     params.require(:question).permit :id, :content, :answer_type,
       :status, :subject_id, :user_id,
       answers_attributes: [:id, :content, :is_correct, :question_id]
-  end
-
-  def load_question
-    @question = Question.find_by id: params[:id]
-    unless @question
-      flash.now[:danger] = t "flash.danger.question_not_found"
-    end
-  end
-
-  def load_questions
-    @questions = Question.order("created_at DESC")
-      .paginate page: params[:page],
-      per_page: Settings.pagination.per_page
   end
 end

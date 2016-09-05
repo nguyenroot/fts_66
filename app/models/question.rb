@@ -16,6 +16,8 @@ class Question < ActiveRecord::Base
   validates_associated :answers
   validate :validate_answers
 
+  scope :contributed, -> {includes(:user).where(users: {role: 0})}
+
   private
   def validate_answers
     unless self.text?

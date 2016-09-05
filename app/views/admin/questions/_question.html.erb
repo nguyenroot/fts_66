@@ -1,0 +1,11 @@
+<tr>
+  <td class="center"><%= question.content %></td>
+  <td class="center"><%= question.subject.name %></td>
+  <td class="center"><%= question.user.name %></td>
+  <td class="center"><%= time_tag question.created_at %></td>
+  <td class="center"><%= t question.status  %></td>
+  <td class="center">
+    <%= link_to t("suggested_question.check"),
+      edit_admin_question_path(question), class: "btn btn-info" %>
+  </td>
+</tr>
