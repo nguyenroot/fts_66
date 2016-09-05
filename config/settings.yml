@@ -8,6 +8,8 @@ pictures:
   upload_dir: "uploads"
   accepted_files: "image/jpeg, image/gif, image/png"
   max_size: 5
+  avatar_size: "128"
+  avatar_small_size: "24"
 logs:
   admin_log_path: "log/admin.log"
   last_ten: 10
