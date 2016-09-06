@@ -1,6 +1,6 @@
 class Admin::ExamsController < ApplicationController
   before_action :verify_admin
-  before_action :load_exam, only: [:show, :update]
+  load_and_authorize_resource
 
   def index
     @exams = Exam.order("updated_at DESC").page(params[:page])

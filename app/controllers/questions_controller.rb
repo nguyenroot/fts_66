@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!, :load_all_subject
+  load_and_authorize_resource
 
   def index
     @questions = current_user.questions
@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    load_all_subject
     @question = current_user.questions.new
     @question.answers.new
   end
