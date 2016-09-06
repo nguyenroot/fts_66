@@ -1,0 +1,8 @@
+<%= t ".dear_user", username: @user.name %>
+<%= t ".body" %>
+<%= @exams.each do |exam| %>
+  <% if exam.checked? %>
+    <%= "#{exam.subject.name}: #{exam.score}/#{exam.exam_questions.count}" %>
+  <% end %>
+<% end %>
+<%= t ".signature" %>

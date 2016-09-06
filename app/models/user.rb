@@ -25,6 +25,13 @@ class User < ActiveRecord::Base
         user.uid = auth.uid
       end
     end
+
+    def send_exam_results
+      @users = User.user
+      @users.each do |user|
+        UserMailer.send_statistic_exam_results(user).deliver_now
+      end
+    end
   end
 
   private

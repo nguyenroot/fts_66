@@ -22,4 +22,10 @@ class UserMailer < ApplicationMailer
     @user = exam.user
     mail to: @user.email, subject: t(".subject", subject: exam.subject.name)
   end
+
+  def send_statistic_exam_results user
+    @user = user
+    @exams = user.exams
+    mail to: @user.email, subject: t(".subject")
+  end
 end

@@ -34,6 +34,7 @@ gem "delayed_job_active_record"
 gem "daemons"
 gem "cloudinary"
 gem "sidekiq"
+gem "whenever", require: false
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"
