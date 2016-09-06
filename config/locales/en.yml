@@ -124,7 +124,8 @@ en:
         create_by: "Create by"
         delete_button: "Delete"
         edit_button: "Edit"
-        delete_question_confirm: "Do you want delet this question?"
+        new_question: "Add question"
+        delete_question_confirm: "Do you want delete this question?"
         content: "Content"
     users:
       index: "Index"
@@ -180,6 +181,8 @@ en:
       edit:
         suggest_question: "Suggest Question"
         create_button: "Save"
+        edit_question: "Edit Question"
+        save_button: "Save changes"
     exams:
       questions:
         save: "Save"

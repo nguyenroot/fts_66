@@ -1,33 +1,46 @@
-<h1><%= link_to @subject.name, [:admin, @subject] %></h1>
-<hr/>
+<h1><%= @subject.name %></h1>
+<% if @subject.image_path? %>
+  <%= image_tag @subject.image_path.url, class: "border-image" %>
+<% end %>
+<%= tag :hr %>
+<div class="row center">
+  <%= link_to t(".new_question"), new_admin_question_path,
+    class: "btn button button-new" %>
+</div>
 <div class="row">
-  <table class="table table-bordered table-striped" id="table">
-    <thead>
-      <tr class="info">
-        <th class="center"><%= t ".content" %></th>
-        <th class="center"><%= t ".question_type" %></th>
-        <th class = "center"><%= t ".create_by" %></th>
-        <th class="center" colspan="2"><%= t ".action" %></th>
-      </tr>
-    </thead>
-    <tbody class="subject-index">
-      <% @questions.each do |question| %>
-        <tr>
-          <td>
-            <%= link_to question.content, "#", id: "flip-#{question.id}" %>
-          </td>
-          <td class="center"><%= question.answer_type %></td>
-          <td class="center"><%= question.user.name %></td>
-          <td>
-            <%= link_to t(".edit_button"),
-              edit_admin_question_path(question),
-              class: "btn btn-info icon-trash icon-white" %>
-            <%= link_to t(".delete_button"), admin_question_path(question),
-              method: :delete, data: {confirm: t(".delete_question_confirm")},
-              class: "btn btn-danger icon-trash icon-white" %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="col-md-8 col-md-offset-2">
+    <% @subject.questions.each_with_index do |question, index| %>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= "#{index + 1}. #{question.content}" %>
+        </div>
+        <div class="panel-body">
+          <% question.answers.each do |answer| %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= render "shared/correct_status_label",
+                  is_correct: answer.is_correct unless question.text? %>
+              </div>
+              <div class="col-md-10">
+                <%= answer.content %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-4">
+              <%= link_to t(".edit_button"), edit_admin_question_path(question),
+                class: "btn btn-success btn-block" %>
+            </div>
+            <div class="col-md-4 col-md-offset-4">
+              <%= link_to t(".delete_button"), admin_question_path(question),
+                method: :delete, class: "btn btn-danger btn-block",
+                data: {confirm: t(".delete_question_confirm")} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
