@@ -8,18 +8,18 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def new
-    @question = current_user.questions.new
     @question.answers.new
     @subjects = Subject.all
   end
 
   def create
-    load_questions
     @question = current_user.questions.new question_params
     if @question.save
       flash.now[:success] = t "flash.success.created_question"
+      redirect_to admin_subject_path(@question.subject)
     else
       flash.now[:danger] = t "flash.danger.created_question"
+      render :new
     end
   end
 
@@ -28,21 +28,20 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def update
-    load_questions
     if @question.update_attributes question_params
       flash.now[:success] = t "flash.success.updated_question"
     else
       flash.now[:danger] = t "flash.danger.updated_question"
     end
+    redirect_to :back
   end
 
   def destroy
-    load_questions
-    if @question.nil?
-      flash.now[:danger] = t "flash.success.deleted_question"
+    if @question.destroy
+      flash.now[:success] = t "flash.success.deleted_question"
     else
       @question.destroy
-      flash[:success] = t "flash.success.deleted_question"
+      flash[:danger] = t "flash.danger.deleted_question"
     end
     redirect_to :back
   end
