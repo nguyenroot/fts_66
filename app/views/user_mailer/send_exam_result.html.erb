@@ -1,0 +1,8 @@
+<h1><%= t ".dear_user", username: @user.name %></h1>
+
+<p>
+  <%= t ".body", exam_name: @exam.subject.name %>
+  <%= "#{@exam.score}/#{@exam.exam_questions.count}" %>
+</p>
+
+<p><%= t ".signature" %></p>

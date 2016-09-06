@@ -311,4 +311,9 @@ en:
       dear_user: "Hi %{username},"
       body: "I'd like to inform you that \"%{exam_name}\" has not yet been started. You should do it now!"
       signature: "FTS_66 team."
+    send_exam_result:
+      subject: "Result of \"%{subject}\""
+      dear_user: "Hi %{username},"
+      body: "I'd like to inform you that \"%{exam_name}\" has been checked. Your result: "
+      signature: "FTS_66 team."
   no_avatar: "No avatar"

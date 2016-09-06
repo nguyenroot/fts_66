@@ -1,0 +1,4 @@
+<%= t ".dear_user", username: @user.name %>
+<%= t ".body", exam_name: @exam.subject.name %>
+<%= "#{@exam.score}/#{@exam.exam_questions.count}" %>
+<%= t ".signature" %>
