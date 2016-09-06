@@ -1,0 +1,17 @@
+<h1><%= t ".dear_user", username: @user.name %></h1>
+
+<p>
+  <%= t ".body" %>
+  <ol>
+  <%= @exams.each do |exam| %>
+    <% if exam.checked? %>
+      <li>
+        <%= "#{exam.subject.name}: " %>
+        <%= "#{exam.score}/#{exam.exam_questions.count}" %>
+      </li>
+    <% end %>
+  <% end %>
+  </ol>
+</p>
+
+<p><%= t ".signature" %></p>
