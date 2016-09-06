@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require jquery.countdown
+//= require social-share-button
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
