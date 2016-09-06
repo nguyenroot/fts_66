@@ -134,7 +134,7 @@ en:
         delete_question_confirm: "Do you want delete this question?"
         content: "Content"
     users:
-      index: "Index"
+      index_num: "Index"
       name: "Name"
       email: "Email"
       chatwork: "Chatwork"
@@ -150,6 +150,8 @@ en:
       update:
         update_success: "Update user successfully"
         update_fail: "Update user fail"
+      index:
+        title: "All users"
     questions:
       answer: "Answer"
       question: "Question"
@@ -178,6 +180,7 @@ en:
         create_by: "Create by"
         edit: "Edit"
         subject: "Subject"
+        title: "Contributed questions"
       errors:
         must_more_one: "must has more than 1 answer"
         must_has_correct_answer: "must has at least 1 correct answer"
@@ -192,6 +195,10 @@ en:
         edit_question: "Edit Question"
         save_button: "Save changes"
         confirm: "Confirmation"
+      search_form:
+        user_name: "Username"
+        all_subject: "All subject"
+        search_submit: "Search"
     exams:
       questions:
         save: "Save"

@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
       redirect_to user_questions_path
     else
       flash[:danger] = t "flash.danger.contributed_question"
+      load_all_subject
       render :new
     end
   end
