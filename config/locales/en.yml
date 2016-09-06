@@ -75,6 +75,7 @@ en:
       checked_exam: "Checked exam successfully!"
       updated_contributed_question: "Update contributed question successfully!"
       deleted_contributed_question: "Deleted contributed question successfully!"
+      edit_question: "Handle question successfully"
     danger:
       created_subject: "Created subject failed!"
       destroy_user: "Delete user failed!"
@@ -91,6 +92,7 @@ en:
       checked_exam: "Checked exam failed!"
       updated_contributed_question: "Update contributed question failed!"
       deleted_contributed_question: "Deleted contributed question failed!"
+      edit_question: "Handle question failed"
     notice:
       permission_denied: "You're not admin!"
   users:
@@ -150,6 +152,7 @@ en:
         update_fail: "Update user fail"
     questions:
       answer: "Answer"
+      question: "Question"
       new:
         suggest_question: "Suggest Question"
         create_button: "Save"
@@ -174,6 +177,7 @@ en:
         content: "Content"
         create_by: "Create by"
         edit: "Edit"
+        subject: "Subject"
       errors:
         must_more_one: "must has more than 1 answer"
         must_has_correct_answer: "must has at least 1 correct answer"
@@ -187,6 +191,7 @@ en:
         create_button: "Save"
         edit_question: "Edit Question"
         save_button: "Save changes"
+        confirm: "Confirmation"
     exams:
       questions:
         save: "Save"
