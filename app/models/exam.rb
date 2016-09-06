@@ -25,7 +25,7 @@ class Exam < ActiveRecord::Base
       update_spent_time
     elsif self.uncheck? && is_finished_or_checked
       self.checked!
-      ExamResultWorker.perform_async self
+      # ExamResultWorker.perform_async self
     end
   end
 
