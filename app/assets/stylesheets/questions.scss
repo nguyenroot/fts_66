@@ -16,4 +16,24 @@
   .space-top-submit {
     margin-top: 40px;
   }
+  #table-show {
+    border-collapse: separate;
+    border-spacing: 0 20px;
+  }
 }
+
+#table-show-render, #table-show {
+  width: 100%;
+  td:first-child {
+    width: 40%;
+  }
+  #table-show-render {
+    td:first-child {
+      width: 15%;
+    }
+    td:nth-child(2) {
+      width: 5%;
+    }
+  }
+}
+
