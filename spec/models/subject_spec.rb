@@ -18,4 +18,18 @@ RSpec.describe Subject, type: :model do
       expect(subject).to be_valid
     end
   end
+
+  describe "Associations" do
+    it {is_expected.to have_many :questions}
+    it {is_expected.to have_many :exams}
+    it {is_expected.to have_many :users}
+  end
+
+  describe "Validation" do
+    it {is_expected.to validate_presence_of :name}
+    it {is_expected.to validate_presence_of :question_number}
+    it {is_expected.to validate_presence_of :duration}
+  end
+
 end
+
