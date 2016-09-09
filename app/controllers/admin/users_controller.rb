@@ -31,14 +31,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-  def load_user
-    @user = User.find_by id: params[:id]
-    unless @user
-      flash[:danger] = I18n.t "users.not_found"
-      redirect_to admin_users_path
-    end
-  end
-
   def user_params
     params.require(:user).permit :name, :email, :chatwork_id,
       :password, :password_confirmation, :role

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :subject do
-    name Faker::Name.name
+    sequence(:name){Faker::Name.name}
     question_number 5
     duration 30
 

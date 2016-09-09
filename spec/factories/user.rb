@@ -16,5 +16,9 @@ FactoryGirl.define do
     trait :small_avatar do
       avatar_path File.open(Rails.root.join("spec/uploads/small_picture.jpg"))
     end
+
+    trait :admin do
+      role 1
+    end
   end
 end

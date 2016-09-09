@@ -28,12 +28,4 @@ class Admin::ExamsController < ApplicationController
     params.require(:exam).permit :subject_id,
       exam_questions_attributes: [:id, :is_correct]
   end
-
-  def load_exam
-    @exam = Exam.find_by id: params[:id]
-    unless @exam
-      flash[:danger] = I18n.t "flash.danger.exam_not_found"
-      redirect_to admin_root_path
-    end
-  end
 end

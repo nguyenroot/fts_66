@@ -54,13 +54,6 @@ class Admin::SubjectsController < ApplicationController
       :duration, :image_path
   end
 
-  def load_subject
-    @subject = Subject.find_by id: params[:id]
-    unless @subject
-      flash.now[:danger] = t "flash.danger.subject_not_found"
-    end
-  end
-
   def load_subjects
     @subjects = Subject.order("created_at DESC").paginate page: params[:page],
       per_page: Settings.pagination.per_page
