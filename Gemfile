@@ -49,6 +49,7 @@ group :test do
   gem "mini_backtrace",         "0.1.3"
   gem "guard-minitest",         "2.3.1"
   gem "rspec-rails",            "3.5"
+  gem "rspec-activemodel-mocks"
   gem "simplecov", require: false
   gem "shoulda-matchers",       "3.1"
 end
